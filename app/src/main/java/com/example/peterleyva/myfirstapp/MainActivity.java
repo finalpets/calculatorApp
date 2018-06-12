@@ -1,5 +1,6 @@
 package com.example.peterleyva.myfirstapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        Button seconActivityBtn = (Button) findViewById(R.id.seconAcivityBtn);
+
+        seconActivityBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent startIntent = new Intent(getApplicationContext(),SeconActivity.class);
+                //Show pass information to second Activity
+                startIntent.putExtra("org.example.peterleyva","Hello PETS");
+                startActivity(startIntent);
+            }
+        });
+
+
 
         Button addBtn = (Button) findViewById(R.id.addBtn);
         addBtn.setOnClickListener(new View.OnClickListener() {
